@@ -22,7 +22,7 @@ def summary_text():
     auto_abstractor.tokenizable_doc = MeCabTokenizer()
     # 文書の区切り文字を指定
     auto_abstractor.delimiter_list = ["。", "\n"]
-    # キュメントの抽象化、フィルタリングを行うオブジェクトを生成
+    # ドキュメントの抽象化、フィルタリングを行うオブジェクトを生成
     abstractable_doc = TopNRankAbstractor()
     # 文書の要約を実行
     result_dict = auto_abstractor.summarize(text, abstractable_doc)
