@@ -20,3 +20,16 @@ def set_log():
     log_conf["handlers"]["fileHandler"]["filename"] = './log/{}.log'.format(datetime.utcnow().strftime("%Y%m%d%H%M%S"))
 
     return log_conf
+
+
+def input_text(filename):
+    with open("./text/input/{}".format(filename), encoding='utf-8') as f:
+        text = f.read()
+    return text
+
+
+def output_text(filename, result_dict):
+    summarize_results = result_dict['summarize_result']
+    with open("./text/output/【要約】{}".format(filename), mode='w', encoding='utf-8') as f:
+        for result in summarize_results:
+            f.writelines(result)
