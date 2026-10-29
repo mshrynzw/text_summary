@@ -30,6 +30,10 @@ def input_text(filename):
 
 def output_text(filename, result_dict):
     summarize_results = result_dict['summarize_result']
-    with open("./text/output/【要約】{}".format(filename), mode='w', encoding='utf-8') as f:
+    output_dir = './text/output'
+    if not os.path.isdir(output_dir):
+        os.makedirs(output_dir)
+
+    with open("{}/【要約】{}".format(output_dir, filename), mode='w', encoding='utf-8') as f:
         for result in summarize_results:
             f.writelines(result)
